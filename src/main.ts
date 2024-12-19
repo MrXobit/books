@@ -11,7 +11,7 @@ const start = async () => {
     const app = await NestFactory.create(AppModule)
 
     const corsOptions: CorsOptions = {
-      origin: "https://mrxobit.github.io", 
+      origin: "https://mrxobit.github.io/books", 
       credentials: true, 
     }
     app.use(cookieParser());
