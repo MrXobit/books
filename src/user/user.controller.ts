@@ -6,6 +6,7 @@ import { validateRegistr } from "src/validate/validateRegistr";
 import { ObjectId } from "mongoose";
 import { validatePassword } from "src/validate/validatePassword";
 import { ApiError } from "src/Error/ApiError";
+import { json } from "stream/consumers";
 
 
 @Controller()
@@ -220,6 +221,11 @@ async resendActivation (@Body() body: {email: string}, @Res() res: Response) {
             return res.status(500).json({ message: 'Internal server error. Please try again later.' });
         }
     
+}
+
+@Get('hello')
+getHello(): { message: string } {
+    return { message: 'Привіт, світ!' };
 }
 }
 
