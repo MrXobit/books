@@ -9,7 +9,7 @@ const FirstStep: React.FC<FirstStepProps> = ({handleFirstStep}) => {
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<null | string>(null);
   const [nameFile, setNameFile] = useState<string>('')
-  const supportedExtensions = ['txt', 'pdf', 'epub', 'mobi'];
+  const supportedExtensions = ['pdf'];
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -102,7 +102,7 @@ const FirstStep: React.FC<FirstStepProps> = ({handleFirstStep}) => {
         />
         
         <p className={styles.formatsText} style={{ marginTop: '15px' }}>
-          Завантажте книгу у форматі 'txt', 'pdf', 'epub', 'mobi'.
+          Завантажте книгу у форматі pdf.
         </p>
 
         <button

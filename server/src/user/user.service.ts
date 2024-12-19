@@ -300,7 +300,6 @@ async refreshResetToken(resetToken: string): Promise<resetDto> {
             throw ApiError.InternalError('Не вдалося оновити токен для скидання пароля. Спробуйте пізніше.');
         }
      }
-
 }
 
 
