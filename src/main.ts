@@ -1,26 +1,28 @@
-import { NestFactory } from "@nestjs/core"
-import { AppModule } from "./app.module"
-import * as dotenv from "dotenv"
-import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.interface"
-import * as cookieParser from 'cookie-parser';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import * as dotenv from "dotenv";
+import * as cookieParser from "cookie-parser";
+import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.interface";
 
-dotenv.config()
+dotenv.config();
+
 const start = async () => {
   try {
-    const PORT = process.env.PORT || 5000
-    const app = await NestFactory.create(AppModule)
+    const PORT = process.env.PORT || 5000;
+    const app = await NestFactory.create(AppModule);
 
     const corsOptions: CorsOptions = {
-      origin: "https://mrxobit.github.io", 
-      credentials: true, 
-    }
+      origin: process.env.CLIENT_URL, // Дозволяємо звернення лише з CLIENT_URL
+      credentials: true, // Дозволяємо куки
+    };
+
     app.use(cookieParser());
-    app.enableCors(corsOptions)
+    app.enableCors(corsOptions);
 
-   app.listen(PORT, () => console.log(`server start on port ${PORT}`))
-  } catch(e) {
-    console.log(e)
+    app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+  } catch (e) {
+    console.log(e);
   }
-}
+};
 
-start()
+start();
