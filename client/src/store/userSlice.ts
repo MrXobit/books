@@ -209,7 +209,7 @@ export const resendActivation = createAsyncThunk<
   'auth/resendActivation',
   async ({ email }, { rejectWithValue }) => {
     try {
-      await UserService.resendActivation(email);
+    await UserService.resendActivation(email);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         return rejectWithValue({
@@ -226,6 +226,10 @@ export const resendActivation = createAsyncThunk<
     }
   }
 );
+
+
+
+
 
 
 
@@ -386,6 +390,9 @@ const userSlice = createSlice({
       .addCase(resendActivation.fulfilled, (state, action) => {
         state.isLoading = false;
       })
+
+
+ 
 
 
   },

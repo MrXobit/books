@@ -9,7 +9,7 @@ import { ApiError } from "src/Error/ApiError";
 
 
 @Controller()
-export class UserController {
+export class UserController {xb 
     constructor(private userService: UserService) {}
 
     @Post('register')

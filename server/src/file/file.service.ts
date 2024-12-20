@@ -43,7 +43,7 @@ export class fileService {
   async BookFile (file: Express.Multer.File): Promise<string> {
     try {
       const fileExtension = file.originalname.split('.').pop()
-      const allowedExtensions = ['txt', 'pdf', 'epub', 'mobi'];
+      const allowedExtensions = ['pdf'];
       if (!allowedExtensions.includes(fileExtension)) {
         throw new HttpException(
           'Unsupported file type. Allowed types are txt, pdf, epub, mobi.',
