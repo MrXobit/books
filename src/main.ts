@@ -12,9 +12,10 @@ const start = async () => {
     const app = await NestFactory.create(AppModule);
 
     const corsOptions: CorsOptions = {
-      origin: process.env.CLIENT_URL, // Дозволяємо звернення лише з CLIENT_URL
-      credentials: true, // Дозволяємо куки
+      origin: process.env.CLIENT_URL || '*', // Дозволяємо лише клієнту
+      credentials: true,
     };
+    
 
     app.use(cookieParser());
     app.enableCors(corsOptions);
